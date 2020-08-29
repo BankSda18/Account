@@ -1,31 +1,33 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand logo" href="/">LOGO</a>
 
-  <a class="navbar-brand" href="/">LOGO</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
-    aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item active">
+          <a class="nav-link spacing-50">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link spacing-50">Timecards</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link spacing-50">Reports</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link spacing-50">Send message</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link">Support</a>
+        </li>
+      </ul>
 
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav mx-auto">
-      <li class="nav-item active">
-        <a class="nav-link">Dashboard</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link">Timecards</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link">Reports</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link">Send message</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link">Support</a>
-      </li>
-    </ul>
-
-    <fa-icon [icon]="icons.faUserAlt"></fa-icon>
+      <fa-icon class="user-avatar" [icon]="icons.faUserAlt"></fa-icon>
+    </div>
   </div>
+
 </nav>
