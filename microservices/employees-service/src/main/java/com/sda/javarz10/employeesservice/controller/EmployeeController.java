@@ -20,10 +20,25 @@ public class EmployeeController {
         return employeeService.findAll();
     }
 
+    @GetMapping("/{id}")
+    public Employee getEmployeeById(@PathVariable String id) {
+        return employeeService.findById(id);
+    }
+
+    @PutMapping("/{id}")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public Employee updateEmployeeById(@PathVariable String id, @RequestBody Employee employee) {
+        return employeeService.updateById(id, employee);
+    }
+
     @PostMapping
-//    @ResponseBody
     @ResponseStatus(HttpStatus.CREATED)
     public Employee createEmployee(@RequestBody Employee employee) {
         return employeeService.create(employee);
+    }
+
+    @DeleteMapping("/{id}")
+    public Employee deleteEmployeeById(@PathVariable String id) {
+        return employeeService.delete(id);
     }
 }
