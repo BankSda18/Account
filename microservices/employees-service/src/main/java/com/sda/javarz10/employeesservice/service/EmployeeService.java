@@ -5,9 +5,9 @@ import com.sda.javarz10.employeesservice.exception.ResourceNotFoundException;
 import com.sda.javarz10.employeesservice.repository.EmployeeRepository;
 import com.sda.javarz10.shared.model.Employee;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -20,8 +20,8 @@ EmployeeService {
         return employeeRepository.save(employee);
     }
 
-    public List<Employee> findAll() {
-        return employeeRepository.findAll();
+    public Page<Employee> findAll(Pageable pageable) {
+        return employeeRepository.findAll(pageable);
     }
 
     public Employee findById(String id) {

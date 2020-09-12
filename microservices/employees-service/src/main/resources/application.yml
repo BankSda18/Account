@@ -3,5 +3,9 @@ server:
 
 spring:
   data:
+    web:
+      pageable:
+        default-page-size: 8
     mongodb:
       database: employee-service-db
+

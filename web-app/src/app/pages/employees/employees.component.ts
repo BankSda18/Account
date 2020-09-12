@@ -14,7 +14,7 @@ export class EmployeesComponent implements OnInit {
     console.log('before this._employeesService.getAllEmployees();');
     this._employeesService.getAllEmployees().subscribe(
       success => {
-        console.log('get success - result: ', success);
+        console.log('get success - result: ', success.content);
       },
       error => {
         console.error('get errored: ', error);

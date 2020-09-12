@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
+import { EmployeePaginationAndSortResponse } from '../model';
 
 @Injectable({
   providedIn: 'root'
@@ -9,13 +10,12 @@ import { environment } from '../../../environments/environment';
 export class EmployeesService {
 
   private host = environment.host;
-  private baseEmployeesUrl = `${this.host}/employees`;
+  private employeeService = `${this.host}/api/v1/employees-service`;
+  private baseEmployeesUrl = `${this.employeeService}/employees`;
 
   constructor(private _http: HttpClient) { }
 
-  getAllEmployees(): Observable<any> {
-    console.log('run getAllEmployees() method');
-    
-    return this._http.get(this.baseEmployeesUrl);
+  getAllEmployees(): Observable<EmployeePaginationAndSortResponse> {
+    return this._http.get<EmployeePaginationAndSortResponse>(this.baseEmployeesUrl);
   }
 }
