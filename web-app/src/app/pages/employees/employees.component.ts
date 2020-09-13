@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Employee, EmployeePaginationAndSortResponse } from '../../shared/model';
 import { EmployeesService } from '../../shared/service/employees.service';
 
 @Component({
@@ -8,19 +10,12 @@ import { EmployeesService } from '../../shared/service/employees.service';
 })
 export class EmployeesComponent implements OnInit {
 
+  employeesResponse$: Observable<EmployeePaginationAndSortResponse>;
+
   constructor(private _employeesService: EmployeesService) { }
 
   ngOnInit(): void {
-    console.log('before this._employeesService.getAllEmployees();');
-    this._employeesService.getAllEmployees().subscribe(
-      success => {
-        console.log('get success - result: ', success.content);
-      },
-      error => {
-        console.error('get errored: ', error);
-      },
-      () => console.log('get completed'),
-    );
+    this.employeesResponse$ = this._employeesService.getAllEmployees();
   }
 
 }
