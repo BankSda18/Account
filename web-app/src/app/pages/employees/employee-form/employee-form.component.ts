@@ -35,6 +35,9 @@ export class EmployeeFormComponent implements OnInit {
       lastName: [null, Validators.required],
       dateOfBirth: [],
       phoneNumber: [],
+      email: [],
+      status: [],
+      company: [],
 
       address: this._fb.group({
         street: [''],
