@@ -1,8 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 
+// Custom.scss
+// Option A: Include all of Bootstrap
+$body-bg: #fafafa;
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
 @import './fonts';
 
 body {
   font-family: 'Montserrat';
   font-weight: normal;
+}
+
+.breadcrumb {
+  background-color: inherit;
 }
