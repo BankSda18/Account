@@ -26,7 +26,7 @@
     </div>
 
     <!-- add *ngFor and iterate for every employee -->
-    <a routerLink="/employees/{{employee.id}}" class="list-group-item list-group-item-action" *ngFor="let employee of (employeesResponse$ | async)?.content">
+    <a routerLink="/employees/{{employee.id}}" class="list-group-item list-group-item-action" *ngFor="let employee of employees$ | async">
       <div class="row">
         <div class="col-3">{{employee.lastName}} {{employee.firstName}}</div>
         <div class="col-2">

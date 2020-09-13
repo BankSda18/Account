@@ -127,6 +127,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "web-app"
+    }
+  },
+  "defaultProject": "web-app",
+  "cli": {
+    "defaultCollection": "@ngxs/schematics"
+  }
 }

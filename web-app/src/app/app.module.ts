@@ -9,8 +9,9 @@ import { environment } from '../environments/environment';
 import { StateClass } from '@ngxs/store/internals';
 import { NgxsStoragePluginModule, StorageOption } from '@ngxs/storage-plugin';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
+import { EmployeesState } from './shared/state/employees/employees.state';
 
-const persistentStates: StateClass<any>[] = [];
+const persistentStates: StateClass<any>[] = [EmployeesState];
 const states: StateClass<any>[] = [...persistentStates];
 
 @NgModule({
@@ -23,7 +24,7 @@ const states: StateClass<any>[] = [...persistentStates];
     AppRoutingModule,
     HttpClientModule,
     NgxsModule.forRoot(states, { developmentMode: !environment.production }),
-    NgxsStoragePluginModule.forRoot({ storage: StorageOption.LocalStorage }),
+    NgxsStoragePluginModule.forRoot({ storage: StorageOption.LocalStorage, key: persistentStates }),
     NgxsReduxDevtoolsPluginModule.forRoot({ disabled: environment.production }),
   ],
   providers: [],
