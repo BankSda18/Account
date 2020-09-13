@@ -4,7 +4,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { NgxsModule } from '@ngxs/store';
+import { environment } from '../environments/environment';
+import { StateClass } from '@ngxs/store/internals';
+import { NgxsStoragePluginModule, StorageOption } from '@ngxs/storage-plugin';
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 
+const persistentStates: StateClass<any>[] = [];
+const states: StateClass<any>[] = [...persistentStates];
 
 @NgModule({
   declarations: [
@@ -15,6 +22,9 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    NgxsModule.forRoot(states, { developmentMode: !environment.production }),
+    NgxsStoragePluginModule.forRoot({ storage: StorageOption.LocalStorage }),
+    NgxsReduxDevtoolsPluginModule.forRoot({ disabled: environment.production }),
   ],
   providers: [],
   bootstrap: [AppComponent]
